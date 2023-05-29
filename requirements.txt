@@ -19,6 +19,7 @@ ultralytics>=8.0.100
 fastapi==0.88.0
 uvicorn==0.20.0
 ipython==7.34.0
+python-multipart>=0.0.1
 
 # protobuf<=3.20.1  # https://github.com/ultralytics/yolov5/issues/8012
 
