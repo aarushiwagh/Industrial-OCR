@@ -7,6 +7,7 @@ import torch
 from IPython.display import Image as IPImage
 import numpy as np
 
+
 app = FastAPI()
 
 @app.get("/")
@@ -26,7 +27,9 @@ async def predict(file: UploadFile = File(None), use_camera: bool = False):
         image = Image.open(io.BytesIO(contents))
 
     # Load the YOLOv5 model
+    torch.hub._validate_not_a_forked_repo=lambda a,b,c: True
     model = torch.hub.load('ultralytics/yolov5', 'custom', 'model\metal_best_3.pt')
+    #model = attempt_load('model\metal_best_3.pt', map_location=torch.device('cpu'))
 
     # Set the input image size (e.g., 640x640)
     input_size = 640
