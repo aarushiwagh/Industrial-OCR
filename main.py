@@ -42,7 +42,7 @@ async def predict(file: UploadFile = File(None), use_camera: bool = False):
     # Run inference on the image
     results = model(image)
     classes = ['-', '.', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'B', 'C', 'D', 'E', 'G', 'I', 'K', 'M', 'N', 'P', 'R', 'S', 'T']
-    confidence_threshold = 0.6
+    confidence_threshold = 0.61
     # Extract the bounding box coordinates, class labels, and confidence scores
     boxes = results.xyxy[0][:, :4].cpu().numpy()  # Bounding box coordinates (x1, y1, x2, y2)
     labels = results.xyxy[0][:, -1].cpu().numpy().astype(int)  # Class labels
