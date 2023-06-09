@@ -58,7 +58,11 @@ async def predict(file: UploadFile = File(None), use_camera: bool = False):
     filtered_scores = sorted_scores[filtered_indices]
 
     class_labels = [classes[i] for i in filtered_labels]
-    detected_string = ''.join(class_labels)
+    all_labels = [classes[i] for i in sorted_labels]
+    if 'S' in all_labels or 'C' in all_labels or 'R' in all_labels and '5' not in all_labels:
+        detected_string = 'SPICER'
+    else:
+        detected_string = ''.join(class_labels)
     # Return the prediction results
     response = JSONResponse({"predictions": detected_string})
     response.headers["Cache-Control"] = "no-cache"

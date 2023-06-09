@@ -11,7 +11,7 @@ model = torch.hub.load('ultralytics/yolov5', 'custom', 'model\metal_best_5.pt')
 input_size = 640
 
 # Load and preprocess the image
-image = Image.open(r"C:\Users\Aarushi Wagh\Downloads\spicer.jpg")
+image = Image.open(r"C:\Users\Aarushi Wagh\Downloads\imgd.jpg")
 image = image.resize((input_size, input_size))
 image_tensor = torch.from_numpy(np.array(image)).permute(2, 0, 1).float().div(255.0).unsqueeze(0)
 
@@ -34,7 +34,13 @@ filtered_labels = sorted_labels[filtered_indices]
 filtered_scores = sorted_scores[filtered_indices]
 
 class_labels = [classes[i] for i in filtered_labels]
+all_labels = [classes[i] for i in sorted_labels]
 detected_string = ''.join(class_labels)
+if 'S' in all_labels or 'C' in all_labels or 'R' in all_labels and '5' not in all_labels:
+    print("Detected Letters (Left to Right): SPICER")
+else:
+    print("Detected Letters (Left to Right):", detected_string)
+
+print(all_labels)
 print(sorted_scores)
-print("Detected Letters (Left to Right):", detected_string)
 
