@@ -1,0 +1,9 @@
+# Spacefile Docs: https://go.deta.dev/docs/spacefile/v0
+v: 0
+micros:
+  - name: Industrial-OCR
+    src: ./
+    engine: custom
+    run: uvicorn main:app
+    public_routes:
+      - "/*"
