@@ -3,7 +3,7 @@ v: 0
 micros:
   - name: Industrial-OCR
     src: ./
-    engine: custom
+    engine: python3.7
     run: uvicorn main:app
     public_routes:
       - "/*"
