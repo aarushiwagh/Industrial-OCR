@@ -31,7 +31,7 @@ async def predict(file: UploadFile = File(...), use_camera: bool = False):
     #image.save(file_path)
 
     ocr = PaddleOCR(use_angle_cls=True, lang='en')  
-    result = ocr.ocr(np.array(image))
+    result = ocr.ocr(np.array(image), cls=True)
     res = ""
     for i in range(len(result[0])):
         res = res+" "+result[0][i][1][0] 
