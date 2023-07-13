@@ -2,7 +2,7 @@ from fastapi import FastAPI, UploadFile, File
 from fastapi.responses import JSONResponse
 from paddleocr import PaddleOCR,draw_ocr
 import io
-import cv2
+#import cv2
 from PIL import Image
 import torch
 from IPython.display import Image as IPImage
@@ -19,9 +19,10 @@ async def root():
 async def predict(file: UploadFile = File(...), use_camera: bool = False):
     if use_camera:
         # Capture frame from the camera
-        capture = cv2.VideoCapture(0)
-        ret, frame = capture.read()
-        image = Image.fromarray(frame)
+        #capture = cv2.VideoCapture(0)
+        #ret, frame = capture.read()
+        #image = Image.fromarray(frame)
+        pass
     else:
         # Read the uploaded file
         contents = await file.read()
