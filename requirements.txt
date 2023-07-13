@@ -1,5 +1,4 @@
 shapely
-mesa-libGL
 scikit-image
 imgaug
 pyclipper
