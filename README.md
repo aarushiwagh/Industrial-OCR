@@ -1,2 +1,2 @@
 ﻿# Industrial-OCR
-Testing FastAPI deployment with Render for the applicatin of an Industrial OCR project
+Testing FastAPI deployment with Render for the application of an Industrial OCR project
